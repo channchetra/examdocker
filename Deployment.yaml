@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auppexam-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auppexam
+  template:
+    metadata:
+      labels:
+        app: auppexam
+    spec:
+      containers:
+      - name: auppexam-container
+        image: sovichetra/examaupp:latest
+        ports:
+        - containerPort: 5000
